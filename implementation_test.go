@@ -23,7 +23,7 @@ func (s *MySuite) TestcalculatePolishNotation(c *C) {
 	c.Assert(result, Equals, "53")
 
 	result, err = CalculatePolishNotation("+ 5 * - 4 2 3")
-	c.Assert(result, Equals, "10")
+	c.Assert(result, Equals, "11")
 
 	result, err = CalculatePolishNotation(" +++ 12 +++")
 	c.Assert(err, ErrorMatches, "Expression contains invalid characters")
