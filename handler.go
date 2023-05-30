@@ -15,7 +15,7 @@ type ComputeHandler struct {
 
 func (ch *ComputeHandler) Compute() error {
 	bufRead := make([]byte, 128)
-	_, err := ch.Input.Read(bufRead)
+	_, err := ch.Input.ReadAll(bufRead)
 	if err != nil {
 		return err
 	}
