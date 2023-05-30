@@ -14,11 +14,10 @@ type ComputeHandler struct {
 }
 
 func (ch *ComputeHandler) Compute() error {
-	bufRead := make([]byte, 128)
-	_, err := ch.Input.ReadAll(bufRead)
-	if err != nil {
-		return err
-	}
+	bufRead, err := io.ReadAll(ch.Input)
+  	if err != nil {
+    	return err
+  	}
 	bufRead = bytes.Trim(bufRead, "\x00")
 
 	expression := string(bufRead)
